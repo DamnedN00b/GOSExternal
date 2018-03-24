@@ -349,7 +349,7 @@ function HPred:PredictUnitPosition(unit, delay)
 end
 
 function HPred:IsChannelling(target, interceptTime)
-	if target.activeSpell and target.activeSpell.valid and target.activeSpell.isChanneling then
+	if target.activeSpell and target.activeSpell.valid and (target.activeSpell.isChanneling or target.activeSpell.windup >= interceptTime) then
 		return true
 	end
 end
